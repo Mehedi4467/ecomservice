@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
-import MessengerCustomerChat from 'react-messenger-customer-chat';
-import ContactForm from '../components/ContactForm/ContactForm';
-import Cards from '../components/Factors/Cards';
-import Footer from '../components/Footer/Footer';
-import HeroSection from '../components/HeroSection/HeroSection';
-import Navbar from '../components/Navbars/Navbar';
-import Spinier from '../components/Spiner/Spiner';
-import { useFirebase } from '../context/UserContext';
+import { useEffect, useState } from "react";
+import MessengerCustomerChat from "react-messenger-customer-chat";
+import ContactForm from "../components/ContactForm/ContactForm";
+import Cards from "../components/Factors/Cards";
+import Footer from "../components/Footer/Footer";
+import HeroSection from "../components/HeroSection/HeroSection";
+import Navbar from "../components/Navbars/Navbar";
+import Spinier from "../components/Spiner/Spiner";
+import { useFirebase } from "../context/UserContext";
 
 export default function Home() {
   const { loading } = useFirebase();
@@ -17,9 +17,9 @@ export default function Home() {
       const position = window.pageYOffset;
       setScrollPosition(position);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, [scrollPosition]);
 
@@ -41,7 +41,7 @@ export default function Home() {
       <>
         <div
           className={` ${
-            scrollPosition > 500 ? 'bg-[#4650e5]' : ''
+            scrollPosition > 500 ? "bg-[#4650e5]" : ""
           } trn bp-10 h-auto py-10 duration-700`}
         >
           <HeroSection></HeroSection>
@@ -49,21 +49,20 @@ export default function Home() {
         <div
           className={` ${
             scrollPosition > 500 && scrollPosition < 2300
-              ? 'bg-[#4650e5]'
-              : 'bg-[#02132b]'
+              ? "bg-[#4650e5]"
+              : "bg-[#02132b]"
           } trn  pb-10 h-auto py-10 duration-700`}
         >
           <div className="mt-10">
             <h1 className="text-6xl text-center pb-5  font-bold text-purple-50 ">
-              Some Best Features Of
-              <br /> Result Rise_
+              Our Service
             </h1>
             <Cards />
           </div>
         </div>
         <div
           className={` ${
-            scrollPosition < 2300 ? 'bg-[#4650e5]' : 'bg-[#02132b]'
+            scrollPosition < 2300 ? "bg-[#4650e5]" : "bg-[#02132b]"
           }   bp-10 h-auto py-10 trn`}
         >
           <ContactForm />

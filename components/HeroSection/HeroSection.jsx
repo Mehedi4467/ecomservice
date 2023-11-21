@@ -11,7 +11,7 @@ const HeroSection = () => {
   return (
     <div>
       <Head>
-        <title>Home - ResultRise</title>
+        <title>Home - Ecomservice</title>
       </Head>
       <BodyTamplate>
         <div className="hero h-screen text-white ">
@@ -20,9 +20,9 @@ const HeroSection = () => {
               <div className="mb-7">
                 <span
                   className="bg-gradient-to-r from-gray-400 via-gray-600 to-blue-800
-                            p-2 md:text-sm rounded-3xl text-white  h-10"
+                            p-2 md:text-sm rounded-3xl text-white  h-10 uppercase"
                 >
-                  REAL RESULT, REAL SUCCESS
+                 it solutions for ecommerce
                 </span>
               </div>
               <h1 className="text-7xl font-bold mt-5">
@@ -33,8 +33,7 @@ const HeroSection = () => {
                 <span className="">Easy Way</span>
               </h1>
               <p className="py-6">
-                Student, Subject, Teacher, Semester, Result and Class from this
-                project. The main objective to develop Result Management System.
+              Our API provides seamless and efficient data serve capabilities, empowering businesses to harness real-time product information, pricing trends, and market insights. 
               </p>
               <div className="flex justify-between mt-5  w-96">
                 <div className="flex flex-col justify-center items-center">
