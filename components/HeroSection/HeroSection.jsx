@@ -41,19 +41,19 @@ const HeroSection = () => {
                   <h1 className="md:text-4xl text-2xl">
                     + <CountUp start={0} end={50} delay={0} duration={2} />
                   </h1>
-                  <p>Teachers </p>
+                  <p>Services </p>
                 </div>
                 <div className="flex flex-col justify-center items-center">
                   <h1 className="md:text-4xl text-2xl">
                     +<CountUp start={0} end={200} delay={0} duration={2} />
                   </h1>
-                  <p>Students </p>
+                  <p>Client </p>
                 </div>
                 <div className="flex flex-col justify-center items-center">
                   <h1 className="md:text-4xl text-2xl">
                     + <CountUp start={0} end={90} delay={0} duration={2} />
                   </h1>
-                  <p>Parents </p>
+                  <p>Business </p>
                 </div>
               </div>
               <div className="mt-12">
