@@ -1,6 +1,8 @@
 import Lottie from "lottie-react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
+import ButtonArrow from "../Shared/Buttons/PrimaryButton";
 
 const Card = ({ data, stickyTopSpace }) => {
   const { title, body, img, bg, fs, image } = data;
@@ -28,7 +30,7 @@ const Card = ({ data, stickyTopSpace }) => {
             {fs}
           </p>
           <div className="flex flex-col  justify-center h-48 pl-4 text-2xl w-full ">
-            <div className="flex gap-4 items-center">
+            <div className="flex gap-4 my-4 pt-8 items-center">
               {image &&
                 image?.map((item, index) => (
                   <Image
@@ -43,6 +45,12 @@ const Card = ({ data, stickyTopSpace }) => {
             </div>
             <h2 className="font-serif font-bold  uppercase">{title}</h2>
             <p className="w-11/12 text-lg pl-4">{body}</p>
+
+            <div className="mt-4">
+              <Link href="/services">
+                <ButtonArrow h={"10"}>Buy Now</ButtonArrow>
+              </Link>
+            </div>
           </div>
         </div>
         <div className="">

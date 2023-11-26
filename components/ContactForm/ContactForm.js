@@ -24,7 +24,7 @@ const ContactForm = () => {
               <li className="flex gap-2 items-center my-2">
                 <GoLocation className="  text-blue-400 " size="18px" />
                 <div>
-                  <p> <span className="font-bold">Address: </span>banani, dhaka b/1200</p>
+                  <p> <span className="font-bold">Address: </span>Shewrapara, dhaka 1200</p>
                 </div>
               </li>
 
@@ -38,31 +38,31 @@ const ContactForm = () => {
               <li className="flex gap-2 items-center">
                 <AiOutlineMail className="  text-blue-400 " size="18px" />
                 <div>
-                  <p> <span className="font-bold">Email: </span> callback.developers@gmail.com</p>
+                  <p> <span className="font-bold">Email: </span> ecomservice@gmail.com</p>
                 </div>
               </li>
             </ul>
           </div>
           <div className="flex gap-2 lg:gap-6">
-            <Link href="https://www.facebook.comk">
+            <Link href="/">
               <CiFacebook
                 className="text-blue-400 mb-2 hover:text-white rounded-full"
                 size="27px"
               />
             </Link>
-            <Link href="https://www.facebook.comk">
+            <Link href="/">
               <AiOutlineLinkedin
                 className="text-blue-400 mb-2 hover:text-white "
                 size="27px"
               />
             </Link>
-            <Link href="https://www.facebook.comk">
+            <Link href="/">
               <AiFillTwitterCircle
                 className="text-blue-400 mb-2 hover:bg-blue-400 hover:text-white rounded-full"
                 size="27px"
               />
             </Link>
-            <Link href="https://www.facebook.comk">
+            <Link href="/">
               <AiOutlineInstagram
                 className="text-blue-400 mb-2  hover:text-white rounded-badge"
                 size="27px"

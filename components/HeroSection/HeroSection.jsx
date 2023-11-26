@@ -1,13 +1,13 @@
 import Head from "next/head";
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
 import CountUp from "react-countup";
-import { useFirebase } from "../../context/UserContext";
 import BodyTamplate from "../Shared/BodyTamplate";
 import ButtonArrow from "../Shared/Buttons/PrimaryButton";
+import { SidebarContext } from "../../pages/_app";
 
 const HeroSection = () => {
-  const { user } = useFirebase();
+  let { user } = useContext(SidebarContext);
   return (
     <div>
       <Head>
@@ -57,10 +57,10 @@ const HeroSection = () => {
                 </div>
               </div>
               <div className="mt-12">
-                {user?.uid ? (
+                {user?.token ? (
                   <div className="z-50">
-                    <Link href="/dashboard/profile">
-                      <ButtonArrow h={"10"}>Go to Your Dashboard</ButtonArrow>{" "}
+                    <Link href="/services">
+                      <ButtonArrow h={"10"}>Buy Now</ButtonArrow>{" "}
                     </Link>
                   </div>
                 ) : (

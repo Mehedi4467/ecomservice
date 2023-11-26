@@ -12,10 +12,10 @@ const Footer = () => {
       <div className="pt-10 pb-5 text-white bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900">
         <div className="footer justify-around  container mx-auto">
           <div>
-            <a className="font-bold cursor-pointer select-none md:text-4xl text-xl no-animation"> ResultRise </a>
-            <p className="w-96 mt-3 leading-6">It can also refer to a specific answer or output produced by a calculation or experiment. and it is often used to measure the success or effectiveness of that effort or activity.</p>
+            <a className="font-bold cursor-pointer select-none md:text-4xl text-xl no-animation"> Ecomservice </a>
+            <p className="w-96 mt-3 leading-6">A Complete Platform For E-commerce Service. We make sales by dealing with customers.</p>
           </div>
-          <div>
+          {/* <div>
             <span className="footer-title text-white">SUPPORT</span>
             <Link href="https://www.facebook.com" className="link link-hover">
               Teachers
@@ -29,20 +29,20 @@ const Footer = () => {
             <Link href="https://www.facebook.com" className="link link-hover">
               Exam Officers
             </Link>
-          </div>
+          </div> */}
           <div>
             <span className="footer-title">ABOUT US</span>
-            <Link href="https://www.likedin.com" className="link link-hover">
-              About Pearson
+            <Link href="/services" className="link link-hover">
+             Products
+            </Link>
+            <Link href="/" className="link link-hover">
+              Demo
             </Link>
             <Link href="https://www.likedin.com" className="link link-hover">
-              News, media and policy
+              Why Us
             </Link>
-            <Link href="https://www.likedin.com" className="link link-hover">
-              Become an examiner
-            </Link>
-            <Link href="https://www.likedin.com" className="link link-hover">
-              Edexcel
+            <Link href="/dashboard/profile" className="link link-hover">
+              Dashboard
             </Link>
           </div>
           <div>
@@ -53,7 +53,7 @@ const Footer = () => {
                   <li className="flex gap-2 items-center my-2">
                     <GoLocation className="  text-blue-400 " size="18px" />
                     <div>
-                      <p> <span className="font-bold">Address: </span>banani, dhaka b/1200</p>
+                      <p> <span className="font-bold">Address: </span>Shewrapara, dhaka 1200</p>
                     </div>
                   </li>
                 </ul>
@@ -69,7 +69,7 @@ const Footer = () => {
                   <li className="flex gap-2 items-center">
                     <AiOutlineMail className="  text-blue-400 " size="18px" />
                     <div>
-                      <p> <span className="font-bold">Email: </span> callback.developers@gmail.com</p>
+                      <p> <span className="font-bold">Email: </span> ecomservice@gmail.com</p>
                     </div>
                   </li>
                 </ul>
@@ -77,37 +77,37 @@ const Footer = () => {
             </div>
             <div className="mt-3">
               <ul className="flex gap-2">
-                <Link href="https://www.facebook.comk">
+                <Link href="https://www.facebook.com/Ecomservicebd">
                   <CiFacebook
                     className="text-blue-400 mb-2 hover:text-white rounded-full"
                     size="27px"
                   />
                 </Link>
-                <Link href="https://www.facebook.comk">
+                <Link href="https://www.facebook.com/Ecomservicebd">
                   <AiOutlineLinkedin
                     className="text-blue-400 mb-2 hover:text-white "
                     size="27px"
                   />
                 </Link>
-                <Link href="https://www.facebook.comk">
+                {/* <Link href="/">
                   <AiFillTwitterCircle
                     className="text-blue-400 mb-2 hover:bg-blue-400 hover:text-white rounded-full"
                     size="27px"
                   />
-                </Link>
-                <Link href="https://www.facebook.comk">
+                </Link> */}
+                {/* <Link href="/">
                   <AiOutlineInstagram
                     className="text-blue-400 mb-2  hover:text-white rounded-badge"
                     size="27px"
                   />
-                </Link>
+                </Link> */}
               </ul>
             </div>
           </div>
         </div>
         <hr className="mt-5" />
         <div className="text-center mt-5">
-          <span className="text-center ">&copy; ResultRise Team 2023</span>
+          <span className="text-center ">&copy; Ecomservice Team 2023</span>
         </div>
       </div>
     </footer>

@@ -1,17 +1,12 @@
 import Link from "next/link";
-import React from "react";
-import AlertMessage from "../../Hooks/AlertMessage";
+import React, { useContext } from "react";
 import BodyTamplate from "../Shared/BodyTamplate";
 import ButtonUp from "../Shared/Buttons/SecondaryButton";
 import Image from "next/image";
+import { SidebarContext } from "../../pages/_app";
 
 const Navbar = ({ scrollPosition }) => {
-  const { successMessage } = AlertMessage();
-  const heandelLogout = () => {
-    logout().then((re) => {
-      successMessage("logout success");
-    });
-  };
+  let { user } = useContext(SidebarContext);
   let bg;
   if (scrollPosition < 500) {
     bg = "bg-[#02132b]";
@@ -26,10 +21,10 @@ const Navbar = ({ scrollPosition }) => {
         <Link href="/">Home</Link>
       </li>
       <li>
-        <Link href="/">Products</Link>
+        <Link href="/services">Products</Link>
       </li>
       <li>
-        <Link href="/">Provider</Link>
+        <Link href="/">Demo</Link>
       </li>
       <li>
         <Link href="/whyUs">Why Us</Link>
@@ -73,7 +68,6 @@ const Navbar = ({ scrollPosition }) => {
               href={"/"}
               className="font-bold cursor-pointer select-none md:text-3xl text-xl no-animation"
             >
-        
               <Image
                 src="/logo.png"
                 width={60}
@@ -85,11 +79,19 @@ const Navbar = ({ scrollPosition }) => {
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1 ">{menuItems}</ul>
           </div>
-          <div className="navbar-end">
-          <Link className="" href="/user/register">
+          {user?.token ? (
+            <div className="navbar-end">
+              <Link className="" href="/dashboard/profile">
+                <ButtonUp>Dashboard</ButtonUp>
+              </Link>
+            </div>
+          ) : (
+            <div className="navbar-end">
+              <Link className="" href="/user/register">
                 <ButtonUp>Register</ButtonUp>
               </Link>
-          </div>
+            </div>
+          )}
         </div>
       </BodyTamplate>
     </div>
