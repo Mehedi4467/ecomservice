@@ -1,46 +1,35 @@
-import { useQuery } from "@tanstack/react-query";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import React from "react";
-import { BiMessageAltDetail } from "react-icons/bi";
-import { GrNotification } from "react-icons/gr";
-import { useFirebase } from "../../context/UserContext";
-import ShowNotification from "../ShowNotification/ShowNotification";
 
+import axios from "axios";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 
 const DashboardNavbar = () => {
-  const { user } = useFirebase();
   const route = useRouter();
+  const [user, setUser] = useState([]);
 
-  const url = `http://localhost:3100/notice`;
-  const {
-    data: noticeData = [], refetch, isLoading, } = useQuery({
-      queryKey: ["noticeData"],
-      queryFn: async () => {
-        const res = await fetch(url);
-        const data = await res.json();
-        return data;
-      },
-    });
+  const getUser = async () => {
+    const { data } = await axios.get(`/api/user/get-user`);
+    console.log('use data',data)
+    setUser(data?.data);
+  };
 
-  refetch();
-
-
+  useEffect(()=>{
+    getUser()
+  },[])
   return (
     <div>
       <div className="navbar container mx-auto bg-base-100 ">
         <div className="flex-1">
           <a className="lg:ml-28 normal-case text-xl font-semibold">
-            Hello , {user?.displayName}
+            Hello , {user?.name}
           </a>
         </div>
         <div className="flex-none gap-2">
-          <div className="form-control">
+          {/* <div className="form-control">
             <label
               htmlFor="my-drawer-2"
               className="btn btn-primary drawer-button lg:hidden"
             >
-              {" "}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
@@ -56,8 +45,8 @@ const DashboardNavbar = () => {
                 />
               </svg>
             </label>
-          </div>
-          <div className="flex-none">
+          </div> */}
+          {/* <div className="flex-none">
             <div className="dropdown dropdown-end flex">
               {
                 route.pathname === "/dashboard/notification/shownotification"
@@ -86,7 +75,7 @@ const DashboardNavbar = () => {
                 </label>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

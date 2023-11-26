@@ -1,33 +1,28 @@
 import { useEffect, useState } from "react";
-import MessengerCustomerChat from "react-messenger-customer-chat";
 import ContactForm from "../components/ContactForm/ContactForm";
 import Cards from "../components/Factors/Cards";
-import Footer from "../components/Footer/Footer";
 import HeroSection from "../components/HeroSection/HeroSection";
-import Navbar from "../components/Navbars/Navbar";
 import Spinier from "../components/Spiner/Spiner";
-import { useFirebase } from "../context/UserContext";
 
 export default function Home() {
-  const { loading } = useFirebase();
-  const [timeOutLoading, setTimeOutLoading] = useState(false);
+  const [timeOutLoading, setTimeOutLoading] = useState(true);
   const [scrollPosition, setScrollPosition] = useState(0);
-  useEffect(() => {
-    const handleScroll = () => {
-      const position = window.pageYOffset;
-      setScrollPosition(position);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [scrollPosition]);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const position = window.pageYOffset;
+  //     setScrollPosition(position);
+  //   };
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, [scrollPosition]);
 
   setTimeout(() => {
-    setTimeOutLoading(true);
+    setTimeOutLoading(false);
   }, 1200);
 
-  if (loading)
+  if (timeOutLoading)
     return (
       <div className="flex justify-center items-center h-screen ">
         <Spinier />
@@ -35,9 +30,6 @@ export default function Home() {
     );
   return (
     <div className={`bg-gray-900`}>
-      <div className=" trn sticky top-0 z-50 ">
-        <Navbar scrollPosition={scrollPosition}></Navbar>
-      </div>
       <>
         <div
           className={` ${
@@ -67,10 +59,9 @@ export default function Home() {
         >
           <ContactForm />
         </div>
-        <Footer />
+      
       </>
-      <MessengerCustomerChat pageId="111854754052829" appId="527602612817067" />
-      ,
+      {/* <MessengerCustomerChat pageId="111854754052829" appId="527602612817067" /> */}
     </div>
   );
 }

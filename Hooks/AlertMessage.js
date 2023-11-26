@@ -9,7 +9,7 @@ const AlertMessage = () => {
     const errorMessage = reason => {
         Swal.fire({
             icon: 'error', title: 'Oops...',
-            text: `Something went wrong! ${reason}`
+            text: `${reason}`
         })
     };
     return { successMessage, errorMessage }

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import React from "react";
-import { useFirebase } from "../../context/UserContext";
 import AlertMessage from "../../Hooks/AlertMessage";
 import BodyTamplate from "../Shared/BodyTamplate";
 import ButtonUp from "../Shared/Buttons/SecondaryButton";
@@ -8,7 +7,6 @@ import Image from "next/image";
 
 const Navbar = ({ scrollPosition }) => {
   const { successMessage } = AlertMessage();
-  const { user, logout } = useFirebase();
   const heandelLogout = () => {
     logout().then((re) => {
       successMessage("logout success");
@@ -88,35 +86,9 @@ const Navbar = ({ scrollPosition }) => {
             <ul className="menu menu-horizontal px-1 ">{menuItems}</ul>
           </div>
           <div className="navbar-end">
-            {user?.uid ? (
-              <div className="dropdown dropdown-end">
-                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                  <div className="w-10 rounded-full">
-                    <img src={user?.photoURL} alt="" />
-                  </div>
-                </label>
-                <ul
-                  tabIndex={0}
-                  className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black rounded-box w-52"
-                >
-                  <li>
-                    <a className="justify-between">{user?.displayName}</a>
-                  </li>
-                  <li>
-                    <a>
-                      <Link href="dashboard/profile">Dashboard</Link>{" "}
-                    </a>
-                  </li>
-                  <li>
-                    <a onClick={() => heandelLogout()}>Logout</a>
-                  </li>
-                </ul>
-              </div>
-            ) : (
-              <Link className="" href="/user/register">
+          <Link className="" href="/user/register">
                 <ButtonUp>Register</ButtonUp>
               </Link>
-            )}
           </div>
         </div>
       </BodyTamplate>
