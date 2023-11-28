@@ -53,7 +53,7 @@ const Footer = () => {
                   <li className="flex gap-2 items-center my-2">
                     <GoLocation className="  text-blue-400 " size="18px" />
                     <div>
-                      <p> <span className="font-bold">Address: </span>Shewrapara, dhaka 1200</p>
+                      <p> <span className="font-bold">Address: </span>20/21 8th floor Garden Road, Kawranbazar, Tejgaon. <br></br> Dhaka, Bangladesh</p>
                     </div>
                   </li>
                 </ul>
@@ -61,7 +61,7 @@ const Footer = () => {
                   <li className="flex gap-2 items-center my-2">
                     <AiOutlineMobile className="  text-blue-400 " size="18px" />
                     <div>
-                      <p> <span className="font-bold">Mobile: </span> +880 1726427834</p>
+                      <p> <span className="font-bold">Mobile: </span> +880 1792110701</p>
                     </div>
                   </li>
                 </ul>
@@ -69,7 +69,7 @@ const Footer = () => {
                   <li className="flex gap-2 items-center">
                     <AiOutlineMail className="  text-blue-400 " size="18px" />
                     <div>
-                      <p> <span className="font-bold">Email: </span> ecomservice@gmail.com</p>
+                      <p> <span className="font-bold">Email: </span>ecomservice.com@gmail.com</p>
                     </div>
                   </li>
                 </ul>

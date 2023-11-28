@@ -9,7 +9,6 @@ const DashboardNavbar = () => {
 
   const getUser = async () => {
     const { data } = await axios.get(`/api/user/get-user`);
-    console.log('use data',data)
     setUser(data?.data);
   };
 
@@ -20,7 +19,7 @@ const DashboardNavbar = () => {
     <div>
       <div className="navbar container mx-auto bg-base-100 ">
         <div className="flex-1">
-          <a className="lg:ml-28 normal-case text-xl font-semibold">
+          <a className="lg:ml-28 w-full text-center normal-case text-xl font-semibold">
             Hello , {user?.name}
           </a>
         </div>

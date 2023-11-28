@@ -4,24 +4,37 @@ import Layout from "../../../Layout/Layout";
 import axios from "axios";
 import Head from "next/head";
 const profile = () => {
-  const [userEdit, setUserEdit] = useState(true);
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState([]);
 
   const getUser = async () => {
-    setLoading(true)
-    const { data } = await axios.get(`/api/user/get-user`);
-    setUser(data?.data);
-    setLoading(false)
+    setLoading(true);
+
+    try {
+      const { data } = await axios.get(`/api/package/get-package`);
+
+      if (data?.status) {
+        setUser(data?.data);
+        setLoading(false);
+      } else {
+        setUser("");
+        setLoading(false);
+      }
+    } catch (err) {
+      console.log("get user ");
+      setUser("");
+      setLoading(false);
+    }
   };
 
-  useEffect(()=>{
-    getUser()
-  },[])
+  useEffect(() => {
+    getUser();
+  }, []);
+
   if (loading) return <MidSpinner />;
-  return ( 
+  return (
     <Layout>
-        <Head>
+      <Head>
         <title>Ecomservice - Dashboard</title>
       </Head>
       <div className="">
@@ -39,9 +52,15 @@ const profile = () => {
                     <li className="flex items-center py-3">
                       <span>Status:</span>
                       <span className="ml-auto">
-                        <span className="bg-green-500 py-1 px-2 rounded text-white text-sm">
-                          Active
-                        </span>
+                        {user?.verification ? (
+                          <span className="bg-green-500 py-1 px-2 rounded text-white text-sm">
+                            Active
+                          </span>
+                        ) : (
+                          <span className="bg-red-500 py-1 px-2 rounded text-white text-sm">
+                            Inactive
+                          </span>
+                        )}
                       </span>
                     </li>
                   </ul>
@@ -49,7 +68,7 @@ const profile = () => {
               </div>
             </div>
             {/* end img-section */}
-            <div className="bg-white p-3 shadow-sm rounded-sm">
+            {/* <div className="bg-white p-3 shadow-sm rounded-sm">
               <div className="flex items-center space-x-2 font-semibold text-gray-900 leading-8">
                 <span className="tracking-wide">Billing</span>
               </div>
@@ -81,7 +100,7 @@ const profile = () => {
                   </tbody>
                 </table>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

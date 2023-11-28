@@ -1,9 +1,12 @@
+import axios from "axios";
 import Head from "next/head";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 const Services = () => {
+  const router = useRouter()
   const services = {
     amazon: [
       {
@@ -42,26 +45,43 @@ const Services = () => {
     }
   }, [service]);
 
-  const submitPackage = (e)=>{
+  const submitPackage = async (e) => {
     e.preventDefault();
-    const tostId = toast.loading('Please Wait...', {
-        style: { backgroundColor: '#e77436', color: '#fff' },
-      });
+    const tostId = toast.loading("Please Wait...", {
+      style: { backgroundColor: "#e77436", color: "#fff" },
+    });
     const packages = e.target.package.value;
     const price = e.target.price.value;
     const tnx = e.target.tnx.value;
 
     const submitBody = {
-        service:service,
-        package:packages,
-        price:price,
-        trnx:tnx
+      service: service,
+      package: packages,
+      price: price,
+      trnx: tnx,
+    };
+
+    try {
+      const { data } = await axios.post(`/api/package/buy-package`,submitBody);
+      if(data?.status){
+        router.push(`/dashboard/profile/services`);
+        toast.dismiss()
+      }else{
+        toast.error("Something went wrong!!", {
+          style: { backgroundColor: '#002c36', color: '#fff' },
+          id: tostId,
+        });
+      }
+    } catch (err) {
+      console.log("buy package error");
+      toast.error("Something went wrong!!", {
+        style: { backgroundColor: '#002c36', color: '#fff' },
+        id: tostId,
+      });
     }
 
-    console.log(submitBody)
-  }
 
-
+  };
 
   return (
     <>
@@ -113,7 +133,11 @@ const Services = () => {
           <form onSubmit={submitPackage}>
             <div className="mb-3">
               <label className="font-bold">Selecte your package</label>
-              <select name="package" className="w-full mt-2 cursor-pointer p-2 rounded-md outline-none border" required>
+              <select
+                name="package"
+                className="w-full mt-2 cursor-pointer p-2 rounded-md outline-none border"
+                required
+              >
                 {selectService?.map((item, index) => (
                   <option key={index}>
                     <div className="flex justify-between w-full">
@@ -125,9 +149,7 @@ const Services = () => {
             </div>
 
             <div className="mb-2">
-              <h2 className="font-bold">
-               Send Amount
-              </h2>
+              <h2 className="font-bold">Send Amount</h2>
               <input
                 type="text"
                 name="price"
@@ -139,8 +161,9 @@ const Services = () => {
 
             <div>
               <h2 className="font-bold">
-                Bkash send money to this <span className="text-orange-500 text-xl">01331579703</span> number and enter the
-                transaction id here
+                Bkash send money to this{" "}
+                <span className="text-orange-500 text-xl">01331579703</span>{" "}
+                number and enter the transaction id here
               </h2>
               <input
                 type="text"
@@ -152,7 +175,9 @@ const Services = () => {
             </div>
 
             <div className="mt-3 flex justify-center">
-              <button className=" bg-blue-500 px-4 text-white py-2 rounded-md">Submit</button>
+              <button className=" bg-blue-500 px-4 text-white py-2 rounded-md">
+                Submit
+              </button>
             </div>
           </form>
         </div>

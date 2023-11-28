@@ -25,7 +25,7 @@ const Sidebars = () => {
           <Link href="/dashboard/profile">Profile</Link>
         </li>
         <li>
-          <Link href="/dashboard/result">services</Link>
+          <Link href="/dashboard/profile/services">Services</Link>
         </li>
         <li>
           <button onClick={()=>logOut()}>Log Out</button>

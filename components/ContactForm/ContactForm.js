@@ -21,48 +21,42 @@ const ContactForm = () => {
 
           <div className="lg:pt-6 lg:pb-6 pb-2">
             <ul className="mt-4">
-              <li className="flex gap-2 items-center my-2">
-                <GoLocation className="  text-blue-400 " size="18px" />
-                <div>
-                  <p> <span className="font-bold">Address: </span>Shewrapara, dhaka 1200</p>
-                </div>
-              </li>
-
+           
               <li className="flex gap-2 items-center my-2">
                 <AiOutlineMobile className="  text-blue-400 " size="18px" />
                 <div>
-                  <p> <span className="font-bold">Mobile: </span> +880 1726427834</p>
+                  <p> <span className="font-bold">Mobile: </span>+880 1792110701</p>
                 </div>
               </li>
 
               <li className="flex gap-2 items-center">
                 <AiOutlineMail className="  text-blue-400 " size="18px" />
                 <div>
-                  <p> <span className="font-bold">Email: </span> ecomservice@gmail.com</p>
+                  <p> <span className="font-bold">Email: </span> ecomservice.com@gmail.com</p>
                 </div>
               </li>
             </ul>
           </div>
           <div className="flex gap-2 lg:gap-6">
-            <Link href="/">
+            <Link href="https://www.facebook.com/Ecomservicebd">
               <CiFacebook
                 className="text-blue-400 mb-2 hover:text-white rounded-full"
                 size="27px"
               />
             </Link>
-            <Link href="/">
+            <Link href="https://www.facebook.com/Ecomservicebd">
               <AiOutlineLinkedin
                 className="text-blue-400 mb-2 hover:text-white "
                 size="27px"
               />
             </Link>
-            <Link href="/">
+            <Link href="https://www.facebook.com/Ecomservicebd">
               <AiFillTwitterCircle
                 className="text-blue-400 mb-2 hover:bg-blue-400 hover:text-white rounded-full"
                 size="27px"
               />
             </Link>
-            <Link href="/">
+            <Link href="https://www.facebook.com/Ecomservicebd">
               <AiOutlineInstagram
                 className="text-blue-400 mb-2  hover:text-white rounded-badge"
                 size="27px"
