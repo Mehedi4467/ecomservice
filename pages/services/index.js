@@ -4,20 +4,30 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import PricingPackage from "../../components/PricingCard/PricingPackage";
 
 const Services = () => {
   const router = useRouter()
+
   const services = {
     amazon: [
       {
         name: "K1",
         price: 5000,
-        time: "Month",
+        time: "month",
+        features: ['Product List API', 'Product Details API', 'Category List API', 'Product Veriation API']
       },
       {
         name: "K2",
-        price: 55000,
-        time: "Year",
+        price: 10000,
+        time: "month",
+        features: ['Product List API', 'Product Details API', 'Category List API', 'Product Veriation API', 'Search API', 'Rating API']
+      },
+      {
+        name: "K3",
+        price: 15000,
+        time: "month",
+        features: ['Product List API', 'Product Details API', 'Category List API', 'Product Veriation API', 'Search API', 'Rating API', 'Image Search API', 'Vendor List API']
       },
     ],
     one_six: [
@@ -25,23 +35,56 @@ const Services = () => {
         name: "K1",
         price: 10000,
         time: "Month",
+        features: ['Product List API', 'Product Details API', 'Category List API', 'Product Veriation API']
       },
       {
         name: "K2",
-        price: 110000,
+        price: 15000,
         time: "Year",
+        features: ['Product List API', 'Product Details API', 'Category List API', 'Product Veriation API', 'Search API', 'Rating API']
+      },
+      {
+        name: "K3",
+        price: 20000,
+        time: "Year",
+        features: ['Product List API', 'Product Details API', 'Category List API', 'Product Veriation API', 'Search API', 'Rating API', 'Image Search API', 'Vendor List API', 'Product Live API']
+      },
+    ],
+    dev: [
+      {
+        name: "K1",
+        price: 10000,
+        time: "Month",
+        features: ['Product List API', 'Product Details API', 'Category List API', 'Product Veriation API']
+      },
+      {
+        name: "K2",
+        price: 15000,
+        time: "Year",
+        features: ['Product List API', 'Product Details API', 'Category List API', 'Product Veriation API', 'Search API', 'Rating API']
+      },
+      {
+        name: "K3",
+        price: 20000,
+        time: "Year",
+        features: ['Product List API', 'Product Details API', 'Category List API', 'Product Veriation API', 'Search API', 'Rating API', 'Image Search API', 'Vendor List API', 'Product Live API']
       },
     ],
   };
 
   const [service, setService] = useState("amazon");
+  console.log('65', service)
   const [selectService, setSelectService] = useState([]);
 
   useEffect(() => {
     if (service === "amazon") {
-      setSelectService(services?.amazon);
-    } else {
-      setSelectService(services?.one_six);
+      setSelectService(services.amazon);
+    }
+    else if (service === "1688") {
+      setSelectService(services.one_six);
+    }
+    else {
+      setSelectService(services.dev);
     }
   }, [service]);
 
@@ -62,11 +105,11 @@ const Services = () => {
     };
 
     try {
-      const { data } = await axios.post(`/api/package/buy-package`,submitBody);
-      if(data?.status){
+      const { data } = await axios.post(`/api/package/buy-package`, submitBody);
+      if (data?.status) {
         router.push(`/dashboard/profile/services`);
         toast.dismiss()
-      }else{
+      } else {
         toast.error("Something went wrong!!", {
           style: { backgroundColor: '#002c36', color: '#fff' },
           id: tostId,
@@ -90,46 +133,56 @@ const Services = () => {
       </Head>
 
       <div className="py-20 grid   mt-10 w-[70%] mx-auto">
-        <div className="flex gap-4 justify-center ">
-          <div className="flex shadow-lg p-4 ring rounded-md items-center gap-3">
-            <div class="mb-[0.125rem] block min-h-[1.5rem] pl-[1.5rem]">
-              <input
-                class="relative float-left -ml-[1.5rem] mr-1 mt-0.5 h-5 w-5 appearance-none rounded-full border-2 border-solid border-neutral-300 before:pointer-events-none before:absolute before:h-4 before:w-4 before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] after:absolute after:z-[1] after:block after:h-4 after:w-4 after:rounded-full after:content-[''] checked:border-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:border-primary checked:after:bg-primary checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:border-primary checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] dark:border-neutral-600 dark:checked:border-primary dark:checked:after:border-primary dark:checked:after:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:border-primary dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
-                type="radio"
-                checked={service === "amazon"}
-                onChange={() => setService("amazon")}
-                name="flexRadioDefault"
-                id="radioDefault01"
+        {
+          selectService !== 'dev' &&
+          <div className="flex gap-4 justify-center ">
+            <div className="flex shadow-lg p-4 ring rounded-md items-center gap-3">
+              <div class="mb-[0.125rem] block min-h-[1.5rem] pl-[1.5rem]">
+                <input
+                  class="relative float-left -ml-[1.5rem] mr-1 mt-0.5 h-5 w-5 appearance-none rounded-full border-2 border-solid border-neutral-300 before:pointer-events-none before:absolute before:h-4 before:w-4 before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] after:absolute after:z-[1] after:block after:h-4 after:w-4 after:rounded-full after:content-[''] checked:border-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:border-primary checked:after:bg-primary checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:border-primary checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] dark:border-neutral-600 dark:checked:border-primary dark:checked:after:border-primary dark:checked:after:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:border-primary dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
+                  type="radio"
+                  checked={service === "amazon"}
+                  onChange={() => setService("amazon")}
+                  name="flexRadioDefault"
+                  id="radioDefault01"
+                />
+              </div>
+              <Image
+                src="/service/amazon.png"
+                width={100}
+                height={500}
+                alt="Picture of the author"
               />
             </div>
-            <Image
-              src="/service/amazon.png"
-              width={100}
-              height={500}
-              alt="Picture of the author"
-            />
-          </div>
-          <div className="flex shadow-lg p-4 ring rounded-md items-center gap-3">
-            <div class="mb-[0.125rem] block min-h-[1.5rem] pl-[1.5rem]">
-              <input
-                class="relative float-left -ml-[1.5rem] mr-1 mt-0.5 h-5 w-5 appearance-none rounded-full border-2 border-solid border-neutral-300 before:pointer-events-none before:absolute before:h-4 before:w-4 before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] after:absolute after:z-[1] after:block after:h-4 after:w-4 after:rounded-full after:content-[''] checked:border-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:border-primary checked:after:bg-primary checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:border-primary checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] dark:border-neutral-600 dark:checked:border-primary dark:checked:after:border-primary dark:checked:after:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:border-primary dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
-                type="radio"
-                checked={service === "1688"}
-                onChange={() => setService("1688")}
-                name="flexRadioDefault"
-                id="radioDefault01"
+            <div className="flex shadow-lg p-4 ring rounded-md items-center gap-3">
+              <div class="mb-[0.125rem] block min-h-[1.5rem] pl-[1.5rem]">
+                <input
+                  class="relative float-left -ml-[1.5rem] mr-1 mt-0.5 h-5 w-5 appearance-none rounded-full border-2 border-solid border-neutral-300 before:pointer-events-none before:absolute before:h-4 before:w-4 before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] after:absolute after:z-[1] after:block after:h-4 after:w-4 after:rounded-full after:content-[''] checked:border-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:left-1/2 checked:after:top-1/2 checked:after:h-[0.625rem] checked:after:w-[0.625rem] checked:after:rounded-full checked:after:border-primary checked:after:bg-primary checked:after:content-[''] checked:after:[transform:translate(-50%,-50%)] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:outline-none focus:ring-0 focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:border-primary checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] dark:border-neutral-600 dark:checked:border-primary dark:checked:after:border-primary dark:checked:after:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:border-primary dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]"
+                  type="radio"
+                  checked={service === "1688"}
+                  onChange={() => setService("1688")}
+                  name="flexRadioDefault"
+                  id="radioDefault01"
+                />
+              </div>
+              <Image
+                src="/service/1688.png"
+                width={100}
+                height={500}
+                alt="Picture of the author"
               />
             </div>
-            <Image
-              src="/service/1688.png"
-              width={100}
-              height={500}
-              alt="Picture of the author"
-            />
           </div>
-        </div>
+        }
+        {
+          selectService ? (
+            <PricingPackage data={selectService} />
+          ) : (
+            null
+          )
+        }
 
-        <div className=" shadow-xl p-6 rounded-md w-[50%] mx-auto mt-10">
+        {/* <div className=" shadow-xl p-6 rounded-md w-[50%] mx-auto mt-10">
           <form onSubmit={submitPackage}>
             <div className="mb-3">
               <label className="font-bold">Selecte your package</label>
@@ -180,7 +233,7 @@ const Services = () => {
               </button>
             </div>
           </form>
-        </div>
+        </div> */}
       </div>
     </>
   );

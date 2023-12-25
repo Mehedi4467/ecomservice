@@ -1,9 +1,9 @@
+import Image from "next/image";
 import Link from "next/link";
 import React, { useContext } from "react";
+import { SidebarContext } from "../../pages/_app";
 import BodyTamplate from "../Shared/BodyTamplate";
 import ButtonUp from "../Shared/Buttons/SecondaryButton";
-import Image from "next/image";
-import { SidebarContext } from "../../pages/_app";
 
 const Navbar = ({ scrollPosition }) => {
   let { user } = useContext(SidebarContext);
@@ -25,6 +25,12 @@ const Navbar = ({ scrollPosition }) => {
       </li>
       <li>
         <Link href="/">Demo</Link>
+      </li>
+      <li>
+        <Link href="/">Pricing</Link>
+      </li>
+      <li>
+        <Link href="/blog">Blog</Link>
       </li>
       <li>
         <Link href="/whyUs">Why Us</Link>

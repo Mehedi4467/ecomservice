@@ -1,7 +1,5 @@
 import React from "react";
 import data from "../../public/Lottie/data.json";
-import lottie2 from "../../public/Lottie/lottie2.json";
-import mutD from "../../public/Lottie/mutD.json";
 import per from "../../public/Lottie/per.json";
 import Card from "./Card";
 
@@ -14,7 +12,8 @@ const cardsData = [
         body: "We provide you with a full website along with our premium API service. Which includes API of amazon.in and 1688.com. By taking our API service you are getting thousands of products without any hassle. And you can set the price of the products as you like. So contact us now without delay",
         img: per,
         bg: "bg-gradient-to-r from-pink-300 via-purple-300 to-indigo-400",
-      
+        url: "/services-dev",
+
     },
     {
         id: 2,
@@ -23,7 +22,8 @@ const cardsData = [
         body: " Whether you're a dynamic e-commerce player, a market analyst, or a forward-thinking entrepreneur, our API delivers the competitive edge you need. Stay ahead of the curve, make informed decisions, and elevate your business with our comprehensive Amazon and 1688.com  API. Welcome to the future of e-commerce intelligence!",
         img: data,
         bg: "bg-gradient-to-r from-yellow-100 via-yellow-300 to-yellow-500",
-        image:['/service/amazon.png','/service/1688.png']
+        image: ['/service/amazon.png', '/service/1688.png'],
+        url: "/services",
     },
     // {
     //     id: 3,

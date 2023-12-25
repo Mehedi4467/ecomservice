@@ -5,7 +5,7 @@ import React from "react";
 import ButtonArrow from "../Shared/Buttons/PrimaryButton";
 
 const Card = ({ data, stickyTopSpace }) => {
-  const { title, body, img, bg, fs, image } = data;
+  const { title, body, img, bg, fs, image, url } = data;
   // console.log(stickyTopSpace);
 
   if (data.id === 1) {
@@ -47,7 +47,7 @@ const Card = ({ data, stickyTopSpace }) => {
             <p className="w-11/12 text-lg pl-4">{body}</p>
 
             <div className="mt-4">
-              <Link href="/services">
+              <Link href={url}>
                 <ButtonArrow h={"10"}>Buy Now</ButtonArrow>
               </Link>
             </div>

@@ -1,13 +1,13 @@
 import Head from "next/head";
 import Link from "next/link";
 import React, { useContext } from "react";
-import CountUp from "react-countup";
+import { SidebarContext } from "../../pages/_app";
 import BodyTamplate from "../Shared/BodyTamplate";
 import ButtonArrow from "../Shared/Buttons/PrimaryButton";
-import { SidebarContext } from "../../pages/_app";
 
 const HeroSection = () => {
   let { user } = useContext(SidebarContext);
+
   return (
     <div>
       <Head>
@@ -32,11 +32,9 @@ const HeroSection = () => {
                 <span className="">Easy Way</span>
               </h1>
               <p className="py-6">
-                Our API provides seamless and efficient data serve capabilities,
-                empowering businesses to harness real-time product information,
-                pricing trends, and market insights.
+                <span className="text-xl font-bold">Ecom Service</span> is a forward-thinking company specializing in providing a one-stop solution for e-commerce businesses. Our team of experts has a deep understanding of the e-commerce landscape, offering tailored services to meet your unique needs.
               </p>
-              <div className="flex justify-between mt-5  w-96">
+              {/* <div className="flex justify-between mt-5  w-96">
                 <div className="flex flex-col justify-center items-center">
                   <h1 className="md:text-4xl text-2xl">
                     + <CountUp start={0} end={50} delay={0} duration={2} />
@@ -55,12 +53,14 @@ const HeroSection = () => {
                   </h1>
                   <p>Business </p>
                 </div>
-              </div>
+              </div> */}
               <div className="mt-12">
                 {user?.token ? (
                   <div className="z-50">
                     <Link href="/services">
-                      <ButtonArrow h={"10"}>Buy Now</ButtonArrow>{" "}
+                      <ButtonArrow h={"10"}
+
+                      >Buy Now</ButtonArrow>{" "}
                     </Link>
                   </div>
                 ) : (

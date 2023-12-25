@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ContactForm from "../components/ContactForm/ContactForm";
 import Cards from "../components/Factors/Cards";
 import HeroSection from "../components/HeroSection/HeroSection";
@@ -32,18 +32,16 @@ export default function Home() {
     <div className={`bg-gray-900`}>
       <>
         <div
-          className={` ${
-            scrollPosition > 500 ? "bg-[#4650e5]" : ""
-          } trn bp-10 h-auto py-10 duration-700`}
+          className={` ${scrollPosition > 500 ? "bg-[#4650e5]" : ""
+            } trn bp-10 h-auto py-10 duration-700`}
         >
           <HeroSection></HeroSection>
         </div>
         <div
-          className={` ${
-            scrollPosition > 500 && scrollPosition < 2300
-              ? "bg-[#4650e5]"
-              : "bg-[#02132b]"
-          } trn  pb-10 h-auto py-10 duration-700`}
+          className={` ${scrollPosition > 500 && scrollPosition < 2300
+            ? "bg-[#4650e5]"
+            : "bg-[#02132b]"
+            } trn  pb-10 h-auto py-10 duration-700`}
         >
           <div className="mt-10">
             <h1 className="text-6xl text-center pb-5  font-bold text-purple-50 ">
@@ -51,15 +49,15 @@ export default function Home() {
             </h1>
             <Cards />
           </div>
+
         </div>
         <div
-          className={` ${
-            scrollPosition < 2300 ? "bg-[#4650e5]" : "bg-[#02132b]"
-          }   bp-10 h-auto py-10 trn`}
+          className={` ${scrollPosition < 2300 ? "bg-[#4650e5]" : "bg-[#02132b]"
+            }   bp-10 h-auto py-10 trn`}
         >
           <ContactForm />
         </div>
-      
+
       </>
       {/* <MessengerCustomerChat pageId="111854754052829" appId="527602612817067" /> */}
     </div>
