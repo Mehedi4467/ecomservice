@@ -5,8 +5,8 @@ const PricingPackage = ({ data }) => {
 
     return (
         <div>
-            <p className="font-sans font-extrabold text-3xl mt-8 text-center">Select Your Package</p>
-            <div className="grid lg:grid-cols-3 md:grid-cols-1 justify-items-center my-12">
+            <p className="font-sans font-extrabold lg:text-3xl text-xl my-8 text-center">Select Your Package</p>
+            <div className="grid lg:grid-cols-3 md:grid-cols-1 gap-4 justify-items-center">
                 {data?.map((pricing, index) => (
                     <PricingCard key={index} {...pricing} />
                 ))}

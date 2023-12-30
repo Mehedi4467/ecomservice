@@ -91,8 +91,7 @@ const Services = () => {
             <Head>
                 <title>Services - Ecomservice</title>
             </Head>
-
-            <div className="py-20 grid   mt-10 w-[70%] mx-auto">
+            <div className="w-[70%] my-6 mx-auto">
 
                 {
                     selectService ? (

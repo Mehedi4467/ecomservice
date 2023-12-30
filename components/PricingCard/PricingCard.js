@@ -5,13 +5,13 @@ import React from 'react';
 
 const PricingCard = ({ title, price, features }) => {
     return (
-        <div className="grid grid-cols-1 justify-items-center w-3/4 bg-purple-50 p-12 my-2 border border-neutral-400 rounded-xl ">
+        <div className="grid grid-cols-1 justify-items-center bg-purple-50 lg:p-12 p-2 my-2 border border-neutral-400 rounded-xl ">
             <div className="px-6 py-4">
                 <div className="font-bold text-2xl mb-2">{title}</div>
                 <p className="text-gray-700 text-base"><span className='text-4xl'>${price}</span> per month</p>
             </div>
             <div>
-                <p className='text-xl px-2 p-2 rounded-md border border-cyan-50 bg-blue-500 hover:bg-blue-700 w-full text-white'>Services Included:</p>
+                <p className='lg:text-lg sm:text-sm px-2 p-2 rounded-md border border-cyan-50 bg-blue-500 hover:bg-blue-700 w-full text-white'>Services Included:</p>
             </div>
             <div className="px-6 py-4 self-start">
                 <ul className="list-disc">

@@ -45,7 +45,7 @@ export default function Home() {
         >
           <div className="mt-10">
             <h1 className="text-6xl text-center pb-5  font-bold text-purple-50 ">
-              Our Service
+              Our Services
             </h1>
             <Cards />
           </div>
